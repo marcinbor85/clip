@@ -77,6 +77,28 @@ Commands arguments are optional. If they will not be defined, then all arguments
 
 ```c
 
+/*
+
+.
+├── adc
+│   ├── read [channel:UINT]
+│   ├── set [vref:FLOAT]
+│   ├── start
+│   └── stop
+├── gpio
+│   ├── get
+│   │   ├── pin [pin:UINT]
+│   │   └── reg [address:UINT]
+│   └── set
+│       ├── pin [pin:UINT] [state:UINT]
+│       └── reg [address:UINT]
+├── mem
+│   ├── write [address:UINT] [data:HEXARRAY]
+│   └── read [address:UINT] [size:UINT]
+└── exit
+
+*/
+
 /* Definition of main clip handler */
 CLIP_DEF_ROOT(g_clip, &g_app_context, event_callback)
     /* there will be 4 root commands: adc, gpio, mem, exit */
