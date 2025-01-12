@@ -65,23 +65,23 @@ CLIP_DEF_ROOT_COMMAND(g_gpio_cmd, "gpio", "control gpio", NULL)
     CLIP_DEF_COMMAND("get", "get methods", NULL)
         CLIP_DEF_COMMAND("pin", "get pin state", gpio_get_pin_callback) CLIP_DEF_WITH_ARGS()
             CLIP_DEF_ARGUMENT("pin", "pin number", CLIP_ARG_TYPE_UINT)
-        CLIP_DEF_COMMAND_END()
+        CLIP_DEF_COMMAND_END_WITH_ARGS()
 
         CLIP_DEF_COMMAND("reg", "get register value", gpio_get_reg_callback) CLIP_DEF_WITH_ARGS()
             CLIP_DEF_ARGUMENT("address", "register address", CLIP_ARG_TYPE_UINT)
-        CLIP_DEF_COMMAND_END()
+        CLIP_DEF_COMMAND_END_WITH_ARGS()
     CLIP_DEF_COMMAND_END()
 
     CLIP_DEF_COMMAND("set", "set methods", NULL)
         CLIP_DEF_COMMAND("pin", "set pin state", gpio_set_pin_callback) CLIP_DEF_WITH_ARGS()
             CLIP_DEF_ARGUMENT("pin", "pin number", CLIP_ARG_TYPE_UINT)
             CLIP_DEF_ARGUMENT("state", "pin state", CLIP_ARG_TYPE_UINT)
-        CLIP_DEF_COMMAND_END()
+        CLIP_DEF_COMMAND_END_WITH_ARGS()
 
         CLIP_DEF_COMMAND("reg", "set register value", gpio_set_reg_callback) CLIP_DEF_WITH_ARGS()
             CLIP_DEF_ARGUMENT("address", "register address", CLIP_ARG_TYPE_UINT)
             CLIP_DEF_ARGUMENT("value", "register value", CLIP_ARG_TYPE_UINT)
-        CLIP_DEF_COMMAND_END()
+        CLIP_DEF_COMMAND_END_WITH_ARGS()
 
     CLIP_DEF_COMMAND_END()
 

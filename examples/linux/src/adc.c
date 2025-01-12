@@ -62,11 +62,11 @@ CLIP_DEF_ROOT_COMMAND(g_adc_cmd, "adc", "control adc driver", NULL)
 
     CLIP_DEF_COMMAND("read", "read input", adc_read_callback) CLIP_DEF_WITH_ARGS()
         CLIP_DEF_ARGUMENT("channel", "channel number", CLIP_ARG_TYPE_UINT)
-    CLIP_DEF_COMMAND_END()
+    CLIP_DEF_COMMAND_END_WITH_ARGS()
 
     CLIP_DEF_COMMAND("set", "set reference", adc_set_callback) CLIP_DEF_WITH_ARGS()
         CLIP_DEF_ARGUMENT("vref", "voltage reference", CLIP_ARG_TYPE_FLOAT)
-    CLIP_DEF_COMMAND_END()
+    CLIP_DEF_COMMAND_END_WITH_ARGS()
 
     CLIP_DEF_COMMAND("start", "start sampling", adc_start_callback) CLIP_DEF_COMMAND_END()
     CLIP_DEF_COMMAND("stop", "stop sampling", adc_stop_callback) CLIP_DEF_COMMAND_END()

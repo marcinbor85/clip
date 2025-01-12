@@ -32,7 +32,6 @@ char* clip_utils_arg_get_first(char **arg, char *cmd_line)
     CLIP_CONFIG_ASSERT(arg != NULL);
     CLIP_CONFIG_ASSERT(cmd_line != NULL);
 
-    int state = 0;
     int escape = 0;
     int quotemark = 0;
     size_t arg_pos = 0;

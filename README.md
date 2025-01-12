@@ -114,11 +114,11 @@ CLIP_DEF_ROOT_COMMAND(g_adc_cmd, "adc", "control adc driver", NULL)
     CLIP_DEF_COMMAND("read", "read input", adc_read_callback) CLIP_DEF_WITH_ARGS()
         /* there will be 1 required argument in "adc read" command */
         CLIP_DEF_ARGUMENT("channel", "channel number", CLIP_ARG_TYPE_UINT)
-    CLIP_DEF_COMMAND_END()
+    CLIP_DEF_COMMAND_END_WITH_ARGS()
     CLIP_DEF_COMMAND("set", "set reference", adc_set_callback) CLIP_DEF_WITH_ARGS()
         /* there will be 1 required argument in "adc set" command */
         CLIP_DEF_ARGUMENT("vref", "voltage reference", CLIP_ARG_TYPE_FLOAT)
-    CLIP_DEF_COMMAND_END()
+    CLIP_DEF_COMMAND_END_WITH_ARGS()
     CLIP_DEF_COMMAND("start", "start sampling", adc_start_callback) CLIP_DEF_COMMAND_END()
     CLIP_DEF_COMMAND("stop", "stop sampling", adc_stop_callback) CLIP_DEF_COMMAND_END()
 CLIP_DEF_ROOT_COMMAND_END()
@@ -131,11 +131,11 @@ CLIP_DEF_ROOT_COMMAND(g_gpio_cmd, "gpio", "control gpio", NULL)
         CLIP_DEF_COMMAND("pin", "get pin state", gpio_get_pin_callback) CLIP_DEF_WITH_ARGS()
             /* there will be 1 required argument in "gpio get pin" command */
             CLIP_DEF_ARGUMENT("pin", "pin number", CLIP_ARG_TYPE_UINT)
-        CLIP_DEF_COMMAND_END()
+        CLIP_DEF_COMMAND_END_WITH_ARGS()
         CLIP_DEF_COMMAND("reg", "get register value", gpio_get_reg_callback) CLIP_DEF_WITH_ARGS()
             /* there will be 1 required argument in "gpio get reg" command */
             CLIP_DEF_ARGUMENT("address", "register address", CLIP_ARG_TYPE_UINT)
-        CLIP_DEF_COMMAND_END()
+        CLIP_DEF_COMMAND_END_WITH_ARGS()
     CLIP_DEF_COMMAND_END()
     CLIP_DEF_COMMAND("set", "set methods", NULL)
         /* there will be 2 subcommands: pin, reg */
@@ -143,12 +143,12 @@ CLIP_DEF_ROOT_COMMAND(g_gpio_cmd, "gpio", "control gpio", NULL)
             /* there will be 2 required arguments in "gpio set pin" command */
             CLIP_DEF_ARGUMENT("pin", "pin number", CLIP_ARG_TYPE_UINT)
             CLIP_DEF_ARGUMENT("state", "pin state", CLIP_ARG_TYPE_UINT)
-        CLIP_DEF_COMMAND_END()
+        CLIP_DEF_COMMAND_END_WITH_ARGS()
         CLIP_DEF_COMMAND("reg", "set register value", gpio_set_reg_callback) CLIP_DEF_WITH_ARGS()
             /* there will be 2 required arguments in "gpio set reg" command */
             CLIP_DEF_ARGUMENT("address", "register address", CLIP_ARG_TYPE_UINT)
             CLIP_DEF_ARGUMENT("value", "register value", CLIP_ARG_TYPE_UINT)
-        CLIP_DEF_COMMAND_END()
+        CLIP_DEF_COMMAND_END_WITH_ARGS()
     CLIP_DEF_COMMAND_END()
 CLIP_DEF_ROOT_COMMAND_END()
 
@@ -159,12 +159,12 @@ CLIP_DEF_ROOT_COMMAND(g_mem_cmd, "mem", "memory driver", NULL)
         /* there will be 2 required arguments in "mem write" command */
         CLIP_DEF_ARGUMENT("address", "address to write", CLIP_ARG_TYPE_UINT)
         CLIP_DEF_ARGUMENT("data", "binary data to write", CLIP_ARG_TYPE_HEXARRAY)
-    CLIP_DEF_COMMAND_END()
+    CLIP_DEF_COMMAND_END_WITH_ARGS()
     CLIP_DEF_COMMAND("read", "read data from memory", mem_read_callback) CLIP_DEF_WITH_ARGS()
         /* there will be 2 required arguments in "mem read" command */
         CLIP_DEF_ARGUMENT("address", "address to read", CLIP_ARG_TYPE_UINT)
         CLIP_DEF_ARGUMENT("size", "number of bytes to read", CLIP_ARG_TYPE_UINT)
-    CLIP_DEF_COMMAND_END()
+    CLIP_DEF_COMMAND_END_WITH_ARGS()
 CLIP_DEF_ROOT_COMMAND_END()
 
 /* Definition of command: exit */

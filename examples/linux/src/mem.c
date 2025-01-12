@@ -53,11 +53,11 @@ CLIP_DEF_ROOT_COMMAND(g_mem_cmd, "mem", "memory driver", NULL)
     CLIP_DEF_COMMAND("write", "write data to memory", mem_write_callback) CLIP_DEF_WITH_ARGS()
         CLIP_DEF_ARGUMENT("address", "address to write", CLIP_ARG_TYPE_UINT)
         CLIP_DEF_ARGUMENT("data", "binary data to write", CLIP_ARG_TYPE_HEXARRAY)
-    CLIP_DEF_COMMAND_END()
+    CLIP_DEF_COMMAND_END_WITH_ARGS()
 
     CLIP_DEF_COMMAND("read", "read data from memory", mem_read_callback) CLIP_DEF_WITH_ARGS()
         CLIP_DEF_ARGUMENT("address", "address to read", CLIP_ARG_TYPE_UINT)
         CLIP_DEF_ARGUMENT("size", "number of bytes to read", CLIP_ARG_TYPE_UINT)
-    CLIP_DEF_COMMAND_END()
+    CLIP_DEF_COMMAND_END_WITH_ARGS()
 
 CLIP_DEF_ROOT_COMMAND_END()

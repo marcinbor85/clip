@@ -51,7 +51,6 @@ void clip_cmd_call_command_callback(const struct clip *self, const struct clip_c
         av->val_str = arg;
 
         const struct clip_arg *ca = NULL;
-        char *end_arg = NULL;
         if (no_more_required_args == false && cmd->args != NULL) {
             ca = cmd->args[argc];
             if (ca != NULL) {

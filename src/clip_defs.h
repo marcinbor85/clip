@@ -48,9 +48,16 @@ const struct clip_command var_name = {\
     _CLIP_DEF_COMMAND(cmd_name, cmd_description, callback_func)\
 
 ///< public macro for finishing root command definition
-#define CLIP_DEF_ROOT_COMMAND_END()\
+#define CLIP_DEF_ROOT_COMMAND_END_WITH_ARGS()\
         NULL,\
     }\
+};\
+
+///< public macro for finishing root command without args definition
+#define CLIP_DEF_ROOT_COMMAND_END()\
+        NULL,\
+    },\
+    .args = NULL\
 };\
 
 ///< public macro for defining command
@@ -67,9 +74,16 @@ const struct clip_command var_name = {\
     },\
 
 ///< public macro for finishing command definition
-#define CLIP_DEF_COMMAND_END()\
+#define CLIP_DEF_COMMAND_END_WITH_ARGS()\
             NULL,\
         }\
+    },\
+
+///< public macro for finishing command without args definition
+#define CLIP_DEF_COMMAND_END()\
+            NULL,\
+        },\
+        .args = NULL\
     },\
 
 ///< public macro for defining arguments for subcommand
