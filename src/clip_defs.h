@@ -65,12 +65,22 @@ const struct clip_command var_name = {\
     &(const struct clip_command) {\
         _CLIP_DEF_COMMAND(cmd_name, cmd_description, callback_func)
 
-///< public macro for defining argument
+///< public macro for defining required argument
 #define CLIP_DEF_ARGUMENT(arg_name, arg_description, arg_type)\
     &(const struct clip_arg) {\
         .name = arg_name,\
         .description = arg_description,\
         .type = arg_type,\
+        .optional = false,\
+    },\
+
+///< public macro for defining optional argument
+#define CLIP_DEF_OPT_ARGUMENT(arg_name, arg_description, arg_type)\
+    &(const struct clip_arg) {\
+        .name = arg_name,\
+        .description = arg_description,\
+        .type = arg_type,\
+        .optional = true,\
     },\
 
 ///< public macro for finishing command definition

@@ -60,6 +60,11 @@ static void gpio_get_reg_callback(const struct clip *self, const struct clip_com
     printf("reg[0x%08X] = 0x%08X\n", argv[0].val_uint, val);
 }
 
+static void gpio_test_callback(const struct clip *self, const struct clip_command *cmd, size_t argc, struct clip_arg_value argv[], void *context)
+{
+    print_args(__func__, argc, argv);
+}
+
 CLIP_DEF_ROOT_COMMAND(g_gpio_cmd, "gpio", "control gpio", NULL)
 
     CLIP_DEF_COMMAND("get", "get methods", NULL)
@@ -84,5 +89,10 @@ CLIP_DEF_ROOT_COMMAND(g_gpio_cmd, "gpio", "control gpio", NULL)
         CLIP_DEF_COMMAND_END_WITH_ARGS()
 
     CLIP_DEF_COMMAND_END()
+
+    CLIP_DEF_COMMAND("test", "test method", gpio_test_callback) CLIP_DEF_WITH_ARGS()
+        CLIP_DEF_ARGUMENT("type", "test type", CLIP_ARG_TYPE_UINT)
+        CLIP_DEF_OPT_ARGUMENT("mode", "optional test mode", CLIP_ARG_TYPE_UINT)
+    CLIP_DEF_COMMAND_END_WITH_ARGS()
 
 CLIP_DEF_ROOT_COMMAND_END()

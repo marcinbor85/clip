@@ -102,7 +102,8 @@ void clip_cmd_call_command_callback(const struct clip *self, const struct clip_c
         const struct clip_arg* *args = cmd->args;
         if (args != NULL) {
             while (*args != NULL) {
-                required_args_count++;
+                if (!(*args)->optional)
+                    required_args_count++;
                 args++;
             }
         }

@@ -125,7 +125,8 @@ size_t clip_utils_arg_get_command_usage_string(char *buf, size_t buf_size, const
                 strncat(buf, " ", buf_size);
                 buf = clip_utils_arg_update_buf(buf, &buf_size, &out_size, 1);
             }
-            size = snprintf(buf, buf_size, "[%s:%s]", (*args)->name, clip_utils_arg_get_type_string((*args)->type));
+            const char *fmt = (*args)->optional ? "[%s:%s]" : "<%s:%s>";
+            size = snprintf(buf, buf_size, fmt, (*args)->name, clip_utils_arg_get_type_string((*args)->type));
             buf = clip_utils_arg_update_buf(buf, &buf_size, &out_size, size);
             args++;
         }

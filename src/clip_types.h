@@ -71,6 +71,7 @@ struct clip_arg {
     const char *name;                   ///< argument name
     const char *description;            ///< argument description (not used internally)
     clip_arg_type_t type;               ///< argument value type
+    bool optional;                      ///< optional argument flag
 };
 
 ///< structure contains parsed argument value in union format

@@ -176,12 +176,13 @@ TEST_F(ClipUtilsArgTest, clip_utils_arg_get_command_usage_string)
     char buf[256];
 
     std::array<const struct clip_arg, 6> args = {
-        clip_arg { "str", nullptr, CLIP_ARG_TYPE_STRING },
-        clip_arg { "bool", nullptr, CLIP_ARG_TYPE_BOOL },
-        clip_arg { "int", nullptr, CLIP_ARG_TYPE_INT },
-        clip_arg { "uint", nullptr, CLIP_ARG_TYPE_UINT },
-        clip_arg { "float", nullptr, CLIP_ARG_TYPE_FLOAT },
-        clip_arg { "hex", nullptr, CLIP_ARG_TYPE_HEXARRAY }
+        clip_arg { "str", nullptr, CLIP_ARG_TYPE_STRING, false },
+        clip_arg { "bool", nullptr, CLIP_ARG_TYPE_BOOL, false },
+        clip_arg { "int", nullptr, CLIP_ARG_TYPE_INT, false },
+        clip_arg { "uint", nullptr, CLIP_ARG_TYPE_UINT, false },
+        clip_arg { "float", nullptr, CLIP_ARG_TYPE_FLOAT, true },
+        clip_arg { "hex", nullptr, CLIP_ARG_TYPE_HEXARRAY, true },
+        
     };
 
     const struct clip_command cmd = {
@@ -201,7 +202,7 @@ TEST_F(ClipUtilsArgTest, clip_utils_arg_get_command_usage_string)
     };
 
     size_t size_out = clip_utils_arg_get_command_usage_string(buf, sizeof(buf), &cmd);
-    EXPECT_EQ(std::string(buf, buf + size_out), "command [str:STRING] [bool:BOOL] [int:INT] [uint:UINT] [float:FLOAT] [hex:HEXARRAY]");
+    EXPECT_EQ(std::string(buf, buf + size_out), "command <str:STRING> <bool:BOOL> <int:INT> <uint:UINT> [float:FLOAT] [hex:HEXARRAY]");
 }
 
 TEST_F(ClipUtilsArgTest, clip_utils_arg_unpack_hexarray)
