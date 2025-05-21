@@ -59,6 +59,19 @@ char* clip_utils_arg_get_first(char **arg, char *cmd_line)
             continue;
         }
 
+        if (escape) {
+            // for special chars
+            switch (*ch) {
+            case 'n': *ch = '\n'; break;
+            case 'r': *ch = '\r'; break;
+            case 't': *ch = '\t'; break;
+            case 'b': *ch = '\b'; break;
+            default:
+                // change not needed
+                break;
+            }
+        }
+
         escape = 0;
         (*arg)[arg_pos] = *ch;
         arg_pos++;    

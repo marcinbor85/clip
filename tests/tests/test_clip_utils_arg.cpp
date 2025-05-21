@@ -116,6 +116,16 @@ TEST_F(ClipUtilsArgTest, clip_utils_arg_get_first__withEscapeChar)
         {"  \"test abc\\\"\" 123",      "test abc\"",         "123"},
         {"  test abc\\\"\" 123",        "test",               "abc\\\"\" 123"},
         {"  testabc\\\"\" 123",         "testabc\" 123",      ""},
+        {"  test\\nabc 123",            "test\nabc",       "123"},
+        {"  test\\rabc 123",            "test\rabc",       "123"},
+        {"  test\\tabc 123",            "test\tabc",       "123"},
+        {"  test\\babc 123",            "test\babc",       "123"},
+        {"  test\\?abc 123",            "test?abc",        "123"},
+        {"  test\\'abc 123",            "test'abc",        "123"},
+        {"  test\\\"abc 123",           "test\"abc",       "123"},
+        {"  test\\\\abc 123",           "test\\abc",       "123"},
+        {"  \"test\\nabc\" 123",        "test\nabc",       "123"},
+        {"  \"\\\"test\\nabc\" 123",    "\"test\nabc",     "123"},
     };
     
     for (auto t : test_cases) {
